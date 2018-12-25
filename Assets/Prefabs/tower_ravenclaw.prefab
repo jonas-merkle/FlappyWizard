@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3254468838745751062}
   - component: {fileID: 6974026392391543925}
   - component: {fileID: 3527915735422488749}
+  - component: {fileID: 6556767342120742286}
   m_Layer: 0
   m_Name: tower_ravenclaw
   m_TagString: DeadZone
@@ -204,3 +205,24 @@ PolygonCollider2D:
       - {x: -3.1800003, y: 3.5352592}
       - {x: -3.1800003, y: -17.745615}
       - {x: 1.568338, y: -17.745615}
+--- !u!50 &6556767342120742286
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5560537634614638191}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6

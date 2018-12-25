@@ -18,17 +18,25 @@ public class SkyScroller : MonoBehaviour
 
     #region basic unity functions
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called before Start()
+    void Awake()
     {
         // get the rigid body object of the sky object
         _body = GetComponent<Rigidbody2D>();
+
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!GameController.Instance.GamePaused && !GameController.Instance.GameOver)
+        //if (!GameController.Instance.GamePaused && !GameController.Instance.GameOver)
+        if (true)
         {
 
             // scroll the sky 

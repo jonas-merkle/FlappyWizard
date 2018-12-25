@@ -33,7 +33,7 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         // Accelerate the character upwards when space bar is pressed 
-        if (!GameController.Instance.GamePaused  && !GameController.Instance.GameOver && Input.GetButton("Jump"))
+        if (/*!GameController.Instance.GamePaused  && !GameController.Instance.GameOver &&*/ Input.GetButton("Jump"))
         {
             _body.velocity = Vector2.zero;
             _body.AddForce(new Vector2(0, LiftForce));

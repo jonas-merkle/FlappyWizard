@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4784771118431488787}
   - component: {fileID: 648168045745834963}
   - component: {fileID: 4340493903228808306}
+  - component: {fileID: 1937560896980993932}
   m_Layer: 0
   m_Name: item_blue
   m_TagString: ItemZone
@@ -392,3 +393,24 @@ PolygonCollider2D:
       - {x: 0.5853913, y: -11.100754}
       - {x: 0.8997681, y: -11.068232}
       - {x: 1.214145, y: -11.02487}
+--- !u!50 &1937560896980993932
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384519761581239487}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6

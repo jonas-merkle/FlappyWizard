@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3176819203016717719}
   - component: {fileID: 4350539905556851546}
   - component: {fileID: 7874999770010517858}
+  - component: {fileID: 6425015181523203660}
   m_Layer: 0
   m_Name: tower_slytherin
   m_TagString: DeadZone
@@ -207,3 +208,24 @@ PolygonCollider2D:
       - {x: 1.5510083, y: -17.745615}
       - {x: 1.5510083, y: 10.588448}
       - {x: 1.516349, y: 10.6750965}
+--- !u!50 &6425015181523203660
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8827385346100872051}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6

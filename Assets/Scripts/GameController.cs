@@ -7,9 +7,11 @@ public class GameController : MonoBehaviour
 
     #region public members
 
-    public float CurrentGameSpeed = -0.5f;      // the current scroll speed of the game
-    public bool GamePaused = false;             // flag if the game is paused 
-    public bool GameOver= false;                // flag if the game is over
+    public float StartSpeed = -0.25f;                // the speed at the beginning of a game
+    public float SpeedIncrementPerSecond = -0.001f;   // the speed increment per second during the game;
+    public float CurrentGameSpeed;                  // the current scroll speed of the game
+    public bool GamePaused = false;                 // flag if the game is paused 
+    public bool GameOver= false;                    // flag if the game is over
 
     // item stuff
     public bool Troll = false;                  // flag to indicate if the 'Troll' item was hit
@@ -24,6 +26,7 @@ public class GameController : MonoBehaviour
     #region private members
 
     private double _score = 0;                  // the reached score 
+    private float _lastSpeedUpdateTime = 0;     // time of last speed update
 
     #endregion
 
@@ -38,14 +41,20 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         // set the reference to the current instance
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else if (Instance != this)
+            Destroy(gameObject);
 
         // setup ui
         ScoreText.text = "0";
         ItemText.text = "-";
 
+        // setting some game variables
+        CurrentGameSpeed = StartSpeed;
         GameOver = false;
         GamePaused = false;
+
     }
 
     // Start is called before the first frame update
@@ -57,6 +66,14 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // speed up the scrolling
+        if (Time.time > _lastSpeedUpdateTime + 1)
+        {
+            CurrentGameSpeed += SpeedIncrementPerSecond;
+            _lastSpeedUpdateTime = Time.time;
+        }
         
+        // check for pause key
+
     }
 }
