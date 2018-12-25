@@ -21,22 +21,21 @@ public class SkyScroller : MonoBehaviour
     // Awake is called before Start()
     void Awake()
     {
-        // get the rigid body object of the sky object
-        _body = GetComponent<Rigidbody2D>();
+        
 
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // get the rigid body object of the sky object
+        _body = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (!GameController.Instance.GamePaused && !GameController.Instance.GameOver)
-        if (true)
+        if (!GameController.Instance.GamePaused && !GameController.Instance.GameOver)
         {
 
             // scroll the sky 

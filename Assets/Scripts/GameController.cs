@@ -41,10 +41,12 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         // set the reference to the current instance
-        if (Instance == null)
+        /*if (Instance == null)
             Instance = this;
         else if (Instance != this)
             Destroy(gameObject);
+            */
+        Instance = this;
 
         // setup ui
         ScoreText.text = "0";

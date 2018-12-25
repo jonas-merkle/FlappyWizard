@@ -28,15 +28,15 @@ public class GameObjectPoolHandler : MonoBehaviour
     // Awake is called before Start()
     void Awake()
     {
-        _objectPool = new Pool(GameObjectPrefab, PoolSize, PoolPos);
-        _lastSpawnTime = 0;
-        _nextFormPool = 0;
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _objectPool = new Pool(GameObjectPrefab, PoolSize, PoolPos);
+        _lastSpawnTime = 0;
+        _nextFormPool = 0;
     }
 
     // Update is called once per frame
