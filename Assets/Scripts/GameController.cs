@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Globalization;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -48,7 +49,7 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
 
         // setup ui
-        ScoreText.text = "0";
+        ScoreText.text = ((long) _score * (-1)).ToString(CultureInfo.InvariantCulture);
         ItemText.text = "-";
 
         // setting some game variables
@@ -61,7 +62,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // init the score
+        _score += -1.0f;
     }
 
     // Update is called once per frame
@@ -80,6 +82,14 @@ public class GameController : MonoBehaviour
             Time.timeScale = 0.0f;
             GamePaused = true;
             PausedScreen.SetActive(true);
+        }
+
+        // update score
+        if (!GamePaused && !GameOver)
+        {
+            _score += (Time.time * CurrentGameSpeed) / 1000;
+
+            ScoreText.text = ((long)_score * (-1)).ToString(CultureInfo.InvariantCulture);
         }
     }
 }
