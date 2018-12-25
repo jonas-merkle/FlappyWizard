@@ -1,34 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GameObjectPool : MonoBehaviour
+class GameObjectPool : MonoBehaviour
 {
-    #region public members
+    #region public member
 
-    public GameObject GameObjectPrefab;
-    public double SpanRate;
-    public static int PoolSize = 10;
-
-    #endregion
-
-    #region private members 
-
-    private GameObject[] ObjectPool = new GameObject[PoolSize];
-    private bool[] ObjectStatus = new bool[PoolSize];
+    public GameObject GameObjectType { get; set; }
+    public int PoolSize { get; set; }
+    public GameObject[] GameObjects { get; set; }
+    public bool[] IsOnScreen { get; set; }
+    public bool[] IsNew { get; set; }
+    public bool[] IsOld { get; set; }
+    public float TimeOfLastSpawn { get; set; }
 
     #endregion
 
-    // Start is called before the first frame update
-    void Start()
+    #region Constructor
+
+    public GameObjectPool(GameObject obGameObjectType, int poolSize)
     {
-        
+        GameObjectType = gameObject;
+        PoolSize = poolSize;
+
+        // init the arrays
+        GameObjects = new GameObject[PoolSize];
+        IsNew = new bool[PoolSize];
+        IsOld = new bool[PoolSize];
+        IsOnScreen = new bool[PoolSize];
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    #endregion
 }
