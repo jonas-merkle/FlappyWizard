@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour
 
     public Text ScoreText;
     public Text ItemText;
+    public GameObject PausedScreen;
 
     #endregion
 
@@ -41,12 +42,10 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         // set the reference to the current instance
-        /*if (Instance == null)
+        if (Instance == null)
             Instance = this;
         else if (Instance != this)
             Destroy(gameObject);
-            */
-        Instance = this;
 
         // setup ui
         ScoreText.text = "0";
@@ -76,6 +75,11 @@ public class GameController : MonoBehaviour
         }
         
         // check for pause key
-
+        if (!GamePaused && !GameOver && Input.GetButton("Cancel"))
+        {
+            Time.timeScale = 0.0f;
+            GamePaused = true;
+            PausedScreen.SetActive(true);
+        }
     }
 }

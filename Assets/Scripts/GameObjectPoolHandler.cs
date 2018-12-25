@@ -43,8 +43,21 @@ public class GameObjectPoolHandler : MonoBehaviour
     void Update()
     {
         // if game is not running, do nothing
-        //if (GameController.Instance.GameOver && GameController.Instance.GamePaused)
-        //    return;
+        if (GameController.Instance.GameOver && GameController.Instance.GamePaused)
+        {
+            // set scrolling speed on all active objects to 0
+            foreach (var obj in _objectPool.PoolObjects)
+            {
+                // check if an object is on screen and has to been moved
+                if (obj.IsOnScreen)
+                {
+                    // set new object speed
+                    obj.GameObjectBody.velocity = Vector2.zero;
+                }
+            }
+
+            return;
+        }
 
         // check if time fo a new object spawn has reached
         if (Time.time > _lastSpawnTime + SpanRate)
