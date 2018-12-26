@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - DeadZone
-  - ItemZone
+  - Item
+  - DeathZone
   layers:
   - Default
   - TransparentFX

@@ -44,8 +44,4 @@ public class CharacterController : MonoBehaviour
     }
 
     #endregion
-
-    #region collision detection
-
-    #endregion
 }

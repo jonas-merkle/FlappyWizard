@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6425015181523203660}
   m_Layer: 0
   m_Name: tower_slytherin
-  m_TagString: DeadZone
+  m_TagString: DeathZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

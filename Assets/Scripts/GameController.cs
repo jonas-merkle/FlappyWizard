@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
     public Text ScoreText;
     public Text ItemText;
     public GameObject PausedScreen;
+    public GameObject GameOverScreen;
 
     #endregion
 

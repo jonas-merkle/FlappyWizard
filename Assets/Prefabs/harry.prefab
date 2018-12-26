@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 34239995570273673}
   - component: {fileID: 3365272248516313608}
   - component: {fileID: 8995835101258491322}
+  - component: {fileID: 2551742627892050277}
   m_Layer: 0
   m_Name: harry
   m_TagString: Player
@@ -91,7 +92,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 7cd622f48d9017c47b213ba06ff6381b, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -658,3 +659,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2551742627892050277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2277186391372828633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6443308cc1a48bf45b9e11fb7276f148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
