@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-class Pool : ScriptableObject
+class Pool : Object
 {   
     #region public member
 

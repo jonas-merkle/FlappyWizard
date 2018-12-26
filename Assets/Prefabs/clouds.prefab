@@ -114,4 +114,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9beac70795e3641428cdea869936c992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VelocityMultiplier: 1
+  VelocityMultiplier: 0.75
+  DefaultPos: {x: 19.2, y: 0}

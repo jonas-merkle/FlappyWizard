@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PoolObject : ScriptableObject 
+public class PoolObject : Object
 {
     #region public member
 

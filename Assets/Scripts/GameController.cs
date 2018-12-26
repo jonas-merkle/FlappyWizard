@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour
     public float EffectDuration = 5;            // the duration of item caused effects 
     public float TimeOfEffectStart;             // the system time of the start of an item effect
 
+    public bool NewHighScore = false;           // flag to indelicate if a new high score has been reached
+
     #endregion
 
     #region private members
