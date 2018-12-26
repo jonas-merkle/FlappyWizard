@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-public class CharacterController : MonoBehaviour
-{   
+public class CharacterControl : MonoBehaviour
+{
+    public static CharacterControl Instance;
+
     #region public members
 
     public Vector2 CharacterPos = new Vector2(-100, 0);         // Position where the character starts at the beginning of a game
@@ -19,6 +21,16 @@ public class CharacterController : MonoBehaviour
 
     #region basic unitiy function
 
+    // Awake is called before Start()
+    void Awake()
+    {
+        // set the reference to the current instance
+        if (Instance == null)
+            Instance = this;
+        else if (Instance != this)
+            Destroy(gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +45,7 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         // Accelerate the character upwards when space bar is pressed 
-        if (!GameController.Instance.GamePaused  && !GameController.Instance.GameOver && Input.GetButton("Jump"))
+        if (!GameControl.Instance.GamePaused  && !GameControl.Instance.GameOver && Input.GetButton("Jump"))
         {
             Vector2 currentPos = _body.position;
             currentPos.x = CharacterPos.x;

@@ -3,6 +3,25 @@ using UnityEngine;
 
 public class CharacterCollisionHandler : MonoBehaviour
 {
+    public static CharacterCollisionHandler Instance;
+
+    #region basic unity functions
+
+    // Awake is called before Start()
+    void Awake()
+    {
+        // set the reference to the current instance
+        if (Instance == null)
+            Instance = this;
+        else if (Instance != this)
+            Destroy(gameObject);
+    }
+
+    #endregion
+
+    #region collision trigger function
+
+    // called when a collision was detected by the polygon collider 2d of the character
     void OnTriggerEnter2D(Collider2D col)
     {
         CollisionEventArgs args = new CollisionEventArgs();
@@ -10,53 +29,11 @@ public class CharacterCollisionHandler : MonoBehaviour
         args.TimeOfCollision = Time.time;
         args.CollisionObjectTag = col.gameObject.tag;
         OnCollisionDetected(args);
-
-        if (col.gameObject.tag == "DeathZone")
-        {
-            Time.timeScale = 0.0f;
-            GameController.Instance.GameOver = true;
-            GameController.Instance.GameOverScreen.SetActive(true);
-
-            // calculate high score
-            int reachedScore = Convert.ToInt32(GameController.Instance.ScoreText.text);
-            int currentHighScore = PlayerPrefs.GetInt("HighScore");
-            if (reachedScore > currentHighScore)
-            {
-                PlayerPrefs.SetInt("HighScore", currentHighScore);
-                GameController.Instance.NewHighScore = true;
-            }
-
-        }
-        else if (col.gameObject.tag == "Item")
-        {
-            //Debug.Log("Item: " + col.name.Replace("(Clone)", ""));
-
-            string itemType = col.name.Replace("(Clone)", "");
-
-            if ("item_red".Equals(itemType))
-            {
-                GameController.Instance.Troll = true;
-                GameController.Instance.TimeOfEffectStart = Time.time;
-            }
-            else if ("item_green".Equals(itemType))
-            {
-                GameController.Instance.Invulnerability = true;
-                GameController.Instance.TimeOfEffectStart = Time.time;
-            }
-            else if ("item_blue".Equals(itemType))
-            {
-                GameController.Instance.Turbo = true;
-                GameController.Instance.TimeOfEffectStart = Time.time;
-            }
-            else if ("item_silver".Equals(itemType))
-            {
-                GameController.Instance.DoublePoints = true;
-                GameController.Instance.TimeOfEffectStart = Time.time;
-            }
-
-            col.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(-1000, 0);
-        }
     }
+
+    #endregion
+
+    #region event managment
 
     protected virtual void OnCollisionDetected(CollisionEventArgs e)
     {
@@ -64,7 +41,11 @@ public class CharacterCollisionHandler : MonoBehaviour
     }
 
     public event EventHandler<CollisionEventArgs> CollisionDetected;
+
+    #endregion
 }
+
+#region event args definition
 
 public class CollisionEventArgs : EventArgs
 {
@@ -72,3 +53,5 @@ public class CollisionEventArgs : EventArgs
     public float TimeOfCollision { get; set; }
     public string CollisionObjectTag { get; set; }
 }
+
+#endregion

@@ -4,10 +4,10 @@ public class PoolObject : Object
 {
     #region public member
 
-    public GameObject GameObjectType;
-    public GameObject GameObject;
-    public Rigidbody2D GameObjectBody;
-    public bool IsOnScreen;
+    public GameObject GameObjectType;       // variable to store the prefab type of the objects
+    public GameObject GameObject;           // var for the corresponding game object
+    public Rigidbody2D GameObjectBody;      // var for the rigid boy of the game object
+    public bool IsOnScreen;                 // flag to indicate if an object is currently in use
 
     #endregion
 

@@ -25,10 +25,12 @@ public class GameObjectPoolHandler : MonoBehaviour
 
     #endregion
 
+    #region basic unity functions
+
     // Awake is called before Start()
     void Awake()
     {
-        
+
     }
 
     // Start is called before the first frame update
@@ -43,7 +45,7 @@ public class GameObjectPoolHandler : MonoBehaviour
     void Update()
     {
         // if game is not running, do nothing
-        if (GameController.Instance.GameOver && GameController.Instance.GamePaused)
+        if (GameControl.Instance.GameOver && GameControl.Instance.GamePaused)
         {
             // set scrolling speed on all active objects to 0
             foreach (var obj in _objectPool.PoolObjects)
@@ -79,7 +81,7 @@ public class GameObjectPoolHandler : MonoBehaviour
         }
 
         // get the current speed form game controller
-        float currentSpeed = GameController.Instance.CurrentGameSpeed;
+        float currentSpeed = GameControl.Instance.CurrentGameSpeed;
 
         // scrolling on screen objects
         foreach (var obj in _objectPool.PoolObjects)
@@ -100,4 +102,6 @@ public class GameObjectPoolHandler : MonoBehaviour
             }
         }
     }
+
+    #endregion
 }

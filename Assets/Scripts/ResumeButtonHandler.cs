@@ -7,7 +7,7 @@ public class ResumeButtonHandler : MonoBehaviour
     public void OnResumButtonClicked()
     {
         PausedScreen.SetActive(false);
-        GameController.Instance.GamePaused = false;
+        GameControl.Instance.GamePaused = false;
         Time.timeScale = 1;
     }
 }

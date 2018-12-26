@@ -4,15 +4,15 @@ public class SkyScroller : MonoBehaviour
 {
     #region public members
 
-    public float VelocityMultiplier = 1;
-    public Vector2 DefaultPos = new Vector2(19.2f, 0);
+    public float VelocityMultiplier = 1;                    // the multiplier for the game veocity
+    public Vector2 DefaultPos = new Vector2(19.2f, 0);      // default position of the object
 
     #endregion
 
     
     #region private members
 
-    private Rigidbody2D _body;
+    private Rigidbody2D _body;          // the rigid body of the object
 
     #endregion
 
@@ -22,7 +22,6 @@ public class SkyScroller : MonoBehaviour
     void Awake()
     {
         
-
     }
 
     // Start is called before the first frame update
@@ -35,11 +34,10 @@ public class SkyScroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameController.Instance.GamePaused && !GameController.Instance.GameOver)
+        if (!GameControl.Instance.GamePaused && !GameControl.Instance.GameOver)
         {
-
             // scroll the sky 
-            _body.velocity = new Vector2(GameController.Instance.CurrentGameSpeed * VelocityMultiplier, 0);
+            _body.velocity = new Vector2(GameControl.Instance.CurrentGameSpeed * VelocityMultiplier, 0);
 
             // scroll back to start if object left the view file
             if (transform.position.x < -DefaultPos.x)
