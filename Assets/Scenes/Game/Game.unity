@@ -585,8 +585,8 @@ MonoBehaviour:
   SpanRate: 10
   SpanProbability: 0.25
   PoolSize: 10
-  PoolPos: {x: 36, y: 10}
-  SpawnPos: {x: 20, y: 0}
+  PoolPos: {x: 26, y: 10}
+  SpawnPos: {x: 10, y: 0}
   MaxY: 4.5
   MinY: -4.5
   EndOfScreenX: -10
@@ -607,8 +607,8 @@ MonoBehaviour:
   SpanRate: 10
   SpanProbability: 0.25
   PoolSize: 10
-  PoolPos: {x: 34, y: 10}
-  SpawnPos: {x: 20, y: 0}
+  PoolPos: {x: 24, y: 10}
+  SpawnPos: {x: 10, y: 0}
   MaxY: 4.5
   MinY: -4.5
   EndOfScreenX: -10
@@ -629,8 +629,8 @@ MonoBehaviour:
   SpanRate: 10
   SpanProbability: 0.25
   PoolSize: 10
-  PoolPos: {x: 32, y: 10}
-  SpawnPos: {x: 20, y: 0}
+  PoolPos: {x: 22, y: 10}
+  SpawnPos: {x: 10, y: 0}
   MaxY: 4.5
   MinY: -4.5
   EndOfScreenX: -10
@@ -651,8 +651,8 @@ MonoBehaviour:
   SpanRate: 10
   SpanProbability: 0.25
   PoolSize: 10
-  PoolPos: {x: 30, y: 10}
-  SpawnPos: {x: 20, y: 0}
+  PoolPos: {x: 20, y: 10}
+  SpawnPos: {x: 10, y: 0}
   MaxY: 4.5
   MinY: -4.5
   EndOfScreenX: -10
@@ -673,8 +673,8 @@ MonoBehaviour:
   SpanRate: 5
   SpanProbability: 0.25
   PoolSize: 10
-  PoolPos: {x: 28, y: 10}
-  SpawnPos: {x: 20, y: 0}
+  PoolPos: {x: 18, y: 10}
+  SpawnPos: {x: 10, y: 0}
   MaxY: -1.45
   MinY: -5.23
   EndOfScreenX: -10
@@ -695,8 +695,8 @@ MonoBehaviour:
   SpanRate: 5
   SpanProbability: 0.25
   PoolSize: 10
-  PoolPos: {x: 26, y: 10}
-  SpawnPos: {x: 20, y: 0}
+  PoolPos: {x: 16, y: 10}
+  SpawnPos: {x: 10, y: 0}
   MaxY: -1.45
   MinY: -5.23
   EndOfScreenX: -10
@@ -717,8 +717,8 @@ MonoBehaviour:
   SpanRate: 5
   SpanProbability: 0.25
   PoolSize: 10
-  PoolPos: {x: 24, y: 10}
-  SpawnPos: {x: 20, y: 0}
+  PoolPos: {x: 14, y: 10}
+  SpawnPos: {x: 10, y: 0}
   MaxY: -1.45
   MinY: -5.23
   EndOfScreenX: -10
@@ -739,8 +739,8 @@ MonoBehaviour:
   SpanRate: 5
   SpanProbability: 0.25
   PoolSize: 10
-  PoolPos: {x: 22, y: 10}
-  SpawnPos: {x: 20, y: 0}
+  PoolPos: {x: 12, y: 10}
+  SpawnPos: {x: 10, y: 0}
   MaxY: -1.45
   MinY: -5.23
   EndOfScreenX: -10
@@ -761,8 +761,8 @@ MonoBehaviour:
   SpanRate: 5
   SpanProbability: 0.5
   PoolSize: 10
-  PoolPos: {x: 20, y: 10}
-  SpawnPos: {x: 20, y: 0}
+  PoolPos: {x: 10, y: 10}
+  SpawnPos: {x: 10, y: 0}
   MaxY: 3.5
   MinY: 0
   EndOfScreenX: -10
