@@ -62,9 +62,9 @@ public class GameObjectPoolHandler : MonoBehaviour
         }
 
         // check if time fo a new object spawn has reached
-        if (Time.time > _lastSpawnTime + SpanRate)
+        if (GameControl.Instance.time() > _lastSpawnTime + SpanRate)
         {
-            _lastSpawnTime = Time.time;     // reset last spawn time
+            _lastSpawnTime = GameControl.Instance.time();     // reset last spawn time
 
             // randomly span a object
             if (Random.Range(0.0f, 1.0f) <= SpanProbability)

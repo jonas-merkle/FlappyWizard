@@ -89,17 +89,36 @@ public class GameControl : MonoBehaviour
         // check for pause key
         if (!GamePaused && !GameOver && Input.GetButton("Cancel"))
         {
-            Time.timeScale = 0.0f;
-            GamePaused = true;
-            PausedScreen.SetActive(true);
+            DoGamePause();
         }
 
         // update score
         if (!GamePaused && !GameOver)
         {
-            _score += (Time.time * CurrentGameSpeed) / 1000;
+            // check if double point effect is active
+            if (DoublePoints)
+            {
+                _score += ((Time.time * CurrentGameSpeed) / 1000) * 2;
+            }
+            else
+            {
+                _score += (Time.time * CurrentGameSpeed) / 1000;
+            }
 
             ScoreText.text = ((long)_score * (-1)).ToString(CultureInfo.InvariantCulture);
+        }
+
+        // check if effect is over
+        if ((Troll || Invulnerability || Turbo || DoublePoints) && time() > TimeOfEffectStart + EffectDuration)
+        {
+            // reset all effects
+            Troll = false;
+            Invulnerability = false;
+            Turbo = false;
+            DoublePoints = false;
+
+            // reset item text box
+            ItemText.text = "-";
         }
     }
 
@@ -115,52 +134,102 @@ public class GameControl : MonoBehaviour
 
     #endregion
 
+    #region private functions
+
+    private void DoGamePause()
+    {
+        Time.timeScale = 0.0f;
+        GamePaused = true;
+        PausedScreen.SetActive(true);
+    }
+
+    private void DoGameOver()
+    {
+        Time.timeScale = 0.0f;
+        GameOver = true;
+        GameOverScreen.SetActive(true);
+
+        // calculate high score
+        int reachedScore = Convert.ToInt32(ScoreText.text);
+        int currentHighScore = PlayerPrefs.GetInt("HighScore");
+        if (reachedScore > currentHighScore)
+        {
+            PlayerPrefs.SetInt("HighScore", currentHighScore);
+            NewHighScore = true;
+        }
+    }
+
+    #endregion
+
     #region envent handler
 
     // event that gets called when the player collides with another object
-    private static void ItemHit(object sender, CollisionEventArgs e)
+    private void ItemHit(object sender, CollisionEventArgs e)
     {
         // null check
         if (e.Collider == null)
             return;
-        
-        // collision with death zone 
-        if (e.CollisionObjectTag == "DeathZone")
+
+        // check if  player has invulnerability
+        if (Invulnerability)
         {
-            Time.timeScale = 0.0f;
-            GameControl.Instance.GameOver = true;
-            GameControl.Instance.GameOverScreen.SetActive(true);
+            // Move the object out of the way 
+            e.Collider.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(-1000, 0);
 
-            // calculate high score
-            int reachedScore = Convert.ToInt32(GameControl.Instance.ScoreText.text);
-            int currentHighScore = PlayerPrefs.GetInt("HighScore");
-            if (reachedScore > currentHighScore)
-            {
-                PlayerPrefs.SetInt("HighScore", currentHighScore);
-                GameControl.Instance.NewHighScore = true;
-            }
-
+            return;
         }
+
+        // collision with death zone 
+        if (!Invulnerability && "DeathZone".Equals(e.CollisionObjectTag))
+        {
+            DoGameOver();
+        }
+
         // collision with item
-        else if (e.CollisionObjectTag == "Item")
+        else if ("Item".Equals(e.CollisionObjectTag))
         {
             string itemType = e.Collider.name.Replace("(Clone)", "");
 
+            // reset all effects
+            Troll = false;
+            Invulnerability = false;
+            Turbo = false;
+            DoublePoints = false;
+
             // read item type
             if ("item_red".Equals(itemType))
-                GameControl.Instance.Troll = true;
+            {
+                Troll = true;
+                ItemText.text = "Troll";
+            }
             else if ("item_green".Equals(itemType))
-                GameControl.Instance.Invulnerability = true;
+            {
+                Invulnerability = true;
+                ItemText.text = "Invulnerability";
+            }
             else if ("item_blue".Equals(itemType))
-                GameControl.Instance.Turbo = true;
+            {
+                Turbo = true;
+                ItemText.text = "Turbo";
+            }
             else if ("item_silver".Equals(itemType))
-                GameControl.Instance.DoublePoints = true;
+            {
+                DoublePoints = true;
+                ItemText.text = "Double Points";
+            }
             else
+            {
+                // Move the object out of the way 
+                e.Collider.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(-1000, 0);
+
                 return;
+            }
             
             // Move the object out of the way 
             e.Collider.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(-1000, 0);
-            GameControl.Instance.TimeOfEffectStart = Time.time;
+
+            // set time of effect start
+            TimeOfEffectStart = time();
         }
     }
 
