@@ -5,6 +5,12 @@ public class CharacterCollisionHandler : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D col)
     {
+        CollisionEventArgs args = new CollisionEventArgs();
+        args.Collider = col;
+        args.TimeOfCollision = Time.time;
+        args.CollisionObjectTag = col.gameObject.tag;
+        OnCollisionDetected(args);
+
         if (col.gameObject.tag == "DeathZone")
         {
             Time.timeScale = 0.0f;
@@ -51,4 +57,18 @@ public class CharacterCollisionHandler : MonoBehaviour
             col.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(-1000, 0);
         }
     }
+
+    protected virtual void OnCollisionDetected(CollisionEventArgs e)
+    {
+        CollisionDetected?.Invoke(this, e);
+    }
+
+    public event EventHandler<CollisionEventArgs> CollisionDetected;
+}
+
+public class CollisionEventArgs : EventArgs
+{
+    public Collider2D Collider { get; set; }
+    public float TimeOfCollision { get; set; }
+    public string CollisionObjectTag { get; set; }
 }

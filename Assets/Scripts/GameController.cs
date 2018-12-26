@@ -95,4 +95,13 @@ public class GameController : MonoBehaviour
             ScoreText.text = ((long)_score * (-1)).ToString(CultureInfo.InvariantCulture);
         }
     }
+
+    #region envent handler
+
+    private static void ItemHit(object sender, CollisionEventArgs e)
+    {
+
+    }
+
+    #endregion
 }
