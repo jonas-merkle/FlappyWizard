@@ -805,6 +805,7 @@ MonoBehaviour:
   DoublePoints: 0
   EffectDuration: 5
   TimeOfEffectStart: 0
+  NewHighScore: 0
   ScoreText: {fileID: 314559128}
   ItemText: {fileID: 675301377}
   PausedScreen: {fileID: 318814600}
@@ -1374,7 +1375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &917893665
 Transform:
   m_ObjectHideFlags: 0
@@ -1735,6 +1736,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196228447399712807, guid: 9db27af52a4a64543997baf9f87746d7,
+        type: 3}
+      propertyPath: VelocityMultiplier
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9db27af52a4a64543997baf9f87746d7, type: 3}
@@ -2302,6 +2308,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196228447399712807, guid: 9db27af52a4a64543997baf9f87746d7,
+        type: 3}
+      propertyPath: VelocityMultiplier
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9db27af52a4a64543997baf9f87746d7, type: 3}
