@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6974026392391543925}
   - component: {fileID: 3527915735422488749}
   - component: {fileID: 6556767342120742286}
-  - component: {fileID: 223892001887435576}
   m_Layer: 0
   m_Name: tower_ravenclaw
   m_TagString: DeathZone
@@ -227,29 +226,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!61 &223892001887435576
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5560537634614638191}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 7}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.3600006, y: 35.480003}
-    newSize: {x: 6.3600006, y: 35.480003}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 10, y: 50}
-  m_EdgeRadius: 0

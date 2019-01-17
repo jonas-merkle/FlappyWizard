@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 648168045745834963}
   - component: {fileID: 4340493903228808306}
   - component: {fileID: 1937560896980993932}
-  - component: {fileID: 3778858580532675713}
   m_Layer: 0
   m_Name: item_blue
   m_TagString: Item
@@ -415,29 +414,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!61 &3778858580532675713
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384519761581239487}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 14.96, y: 22.2}
-    newSize: {x: 14.96, y: 22.2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 20, y: 25}
-  m_EdgeRadius: 0

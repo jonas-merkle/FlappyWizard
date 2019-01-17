@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1653233259327650628}
   - component: {fileID: 8300809891063921176}
   - component: {fileID: 6139193027500168625}
+  - component: {fileID: 9000560594195743406}
   m_Layer: 0
   m_Name: malfoy
   m_TagString: Player
@@ -656,3 +657,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &9000560594195743406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8451959627997033701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6443308cc1a48bf45b9e11fb7276f148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

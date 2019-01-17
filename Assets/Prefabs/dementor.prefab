@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1986587397160798925}
   - component: {fileID: 1125062639142820963}
   - component: {fileID: 896338787561243233}
-  - component: {fileID: 283232942019901915}
   m_Layer: 0
   m_Name: dementor
   m_TagString: DeathZone
@@ -638,29 +637,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!61 &283232942019901915
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8571514459806267150}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 46.96, y: 40.7}
-    newSize: {x: 46.96, y: 40.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 40, y: 50}
-  m_EdgeRadius: 0
