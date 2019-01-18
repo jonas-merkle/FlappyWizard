@@ -856,8 +856,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 3627405996906587390, guid: b7639c545775e7746843349a15a62f49,
     type: 3}
-  SpawnDistance: 0.05
-  SpawnScattering: 0
+  SpawnDistance: 1
+  SpawnScattering: 0.5
   SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 26, y: 10}
@@ -883,8 +883,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 4299975889344116893, guid: 9b9b0d1835e3c6a428fbd83a42572b0a,
     type: 3}
-  SpawnDistance: 0.05
-  SpawnScattering: 0
+  SpawnDistance: 1
+  SpawnScattering: 0.5
   SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 24, y: 10}
@@ -910,8 +910,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 2632782608432091434, guid: 9d79a3adbf787744db57a64912a46410,
     type: 3}
-  SpawnDistance: 0.05
-  SpawnScattering: 0
+  SpawnDistance: 1
+  SpawnScattering: 0.5
   SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 22, y: 10}
@@ -937,8 +937,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 384519761581239487, guid: 7246cc73e7af05f45a9d53d3e82c40cc,
     type: 3}
-  SpawnDistance: 0.05
-  SpawnScattering: 0
+  SpawnDistance: 1
+  SpawnScattering: 0.5
   SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 20, y: 10}
@@ -964,8 +964,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 8827385346100872051, guid: 32557757157cd34478e3a6acce447e09,
     type: 3}
-  SpawnDistance: 0.05
-  SpawnScattering: 0
+  SpawnDistance: 0.1
+  SpawnScattering: 0.05
   SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 18, y: 10}
@@ -991,8 +991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 5560537634614638191, guid: 60474a55e6f2a7242bd0bb2052bc19c6,
     type: 3}
-  SpawnDistance: 0.05
-  SpawnScattering: 0
+  SpawnDistance: 0.1
+  SpawnScattering: 0.05
   SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 16, y: 10}
@@ -1018,8 +1018,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 3903754484670463194, guid: 6e20f23b7a00c9b4794ff776a2a7b4b6,
     type: 3}
-  SpawnDistance: 0.05
-  SpawnScattering: 0
+  SpawnDistance: 0.1
+  SpawnScattering: 0.05
   SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 14, y: 10}
@@ -1045,8 +1045,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 8118564234625839102, guid: 98b758473841b6a4991c1d2ea3ff44dc,
     type: 3}
-  SpawnDistance: 0.05
-  SpawnScattering: 0
+  SpawnDistance: 0.1
+  SpawnScattering: 0.5
   SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 12, y: 10}
@@ -1072,8 +1072,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 8571514459806267150, guid: 36c664101141d114b8361e01c872116a,
     type: 3}
-  SpawnDistance: 0.05
-  SpawnScattering: 0
+  SpawnDistance: 0.1
+  SpawnScattering: 0.05
   SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 10, y: 10}
