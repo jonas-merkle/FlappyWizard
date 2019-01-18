@@ -6,7 +6,11 @@ public class CharacterControl : MonoBehaviour
 
     #region public members
 
-    public Vector2 CharacterPos = new Vector2(-100, 0);         // Position where the character starts at the beginning of a game
+    public Vector2 CharacterPos = new Vector2(-100, 0);     // Position where the character starts at the beginning of a game
+    public GameObject CedricPrefab;                             // the prefab for cedric
+    public GameObject HarryPrefab;                              // the prefab for harry
+    public GameObject LunaPrefab;                               // the prefab for luna
+    public GameObject MelfoyPrefab;                             // the prefab for malfoy
     public GameObject CharacterTypPrefab;                       // The Prefab of the selected character
     public float LiftForce = 150;                               // The Force which lifts the character up on interaction    
 
@@ -34,6 +38,27 @@ public class CharacterControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // select game character
+        if (SceneHandler.Instance.SelectedCharacter != null)
+        {
+            if (SceneHandler.Instance.SelectedCharacter.Equals("cedric"))
+            {
+                CharacterTypPrefab = CedricPrefab;
+            }
+            else if (SceneHandler.Instance.SelectedCharacter.Equals("harry"))
+            {
+                CharacterTypPrefab = HarryPrefab;
+            }
+            else if (SceneHandler.Instance.SelectedCharacter.Equals("luna"))
+            {
+                CharacterTypPrefab = LunaPrefab;
+            }
+            else if (SceneHandler.Instance.SelectedCharacter.Equals("malfoy"))
+            {
+                CharacterTypPrefab = MelfoyPrefab;
+            }
+        }
+        
         // Load the Prefab for the selected character and set it to the default position
         _character = Instantiate(CharacterTypPrefab, CharacterPos, Quaternion.identity);
 

@@ -779,6 +779,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterPos: {x: -3, y: 0}
+  CedricPrefab: {fileID: 1514071930499925728, guid: 6b71b12fc4a60af40b120fb15bf3b03e,
+    type: 3}
+  HarryPrefab: {fileID: 2277186391372828633, guid: fd0890d7f9173e641bac98061409afd8,
+    type: 3}
+  LunaPrefab: {fileID: 4319956247024170069, guid: d4c9946372a8b2d4799ececc3e275504,
+    type: 3}
+  MelfoyPrefab: {fileID: 8451959627997033701, guid: 231a6c2373ac38946a1358e0961e43fb,
+    type: 3}
   CharacterTypPrefab: {fileID: 2277186391372828633, guid: fd0890d7f9173e641bac98061409afd8,
     type: 3}
   LiftForce: 150

@@ -7,7 +7,7 @@ public class ButtonHandler : MonoBehaviour
         SceneHandler.Instance.CloseApplication();
     }
 
-    public void StartGameClicked(GameObject character)
+    public void StartGameClicked(string character)
     {
         SceneHandler.Instance.StartGame(character);
     }
@@ -22,9 +22,9 @@ public class ButtonHandler : MonoBehaviour
         SceneHandler.Instance.ShowHelp();
     }
 
-    public void BackToMainMenuClicked(string nameOfCurrentScene)
+    public void BackToMainMenuClicked(int indexOfCurrentScene)
     {
-        SceneHandler.Instance.ShowMainMenu(nameOfCurrentScene);
+        SceneHandler.Instance.ShowMainMenu(indexOfCurrentScene);
     } 
 
 }

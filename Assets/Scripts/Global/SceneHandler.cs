@@ -5,16 +5,20 @@ public class SceneHandler : MonoBehaviour
 {
     #region public members
 
+    // SceneHandler instance 
     public static SceneHandler Instance;
+
+    // selected character
+    public string SelectedCharacter = "harry";
 
     #endregion
 
     #region scenes
 
-    public static Scene MainMenuScene { get; set; }
-    public static Scene GamePlayScene { get; set; }
-    public static Scene HighScoreScene { get; set; }
-    public static Scene HelpScene { get; set; }
+    public int MainMenuSceneNo = 0;
+    public int GamePlaySceneNo = 1;
+    public int HighScoreSceneNo = 2;
+    public int HelpSceneNo = 3;
 
     #endregion
 
@@ -53,45 +57,34 @@ public class SceneHandler : MonoBehaviour
 
     #region public scene mamagement functions
 
-    public void StartGame(GameObject character)
+    public void StartGame(string character)
     {
-        // load character prefab
-        CharacterControl.Instance.CharacterTypPrefab = character;
-
-        // load game scene & set it active
-        SceneManager.LoadScene(GamePlayScene.name);
-        GamePlayScene = SceneManager.GetSceneByName(GamePlayScene.name);
-        SceneManager.SetActiveScene(GamePlayScene);
+        SelectedCharacter = character;
+        
+        // load game scene
+        SceneManager.LoadScene(GamePlaySceneNo);
     }
 
     public void ShowHighScore()
     {
-        // load high score scene & set it active
-        SceneManager.LoadScene(HighScoreScene.name);
-        HighScoreScene = SceneManager.GetSceneByName(HighScoreScene.name);
-        SceneManager.SetActiveScene(HighScoreScene);
+        // load high score scene
+        SceneManager.LoadScene(HighScoreSceneNo);
     }
 
     public void ShowHelp()
     {
         // load help scene & set it active
-        SceneManager.LoadScene(HelpScene.name);
-        HelpScene = SceneManager.GetSceneByName(HelpScene.name);
-        SceneManager.SetActiveScene(HelpScene);
+        SceneManager.LoadScene(HelpSceneNo);
     }
 
-    public void ShowMainMenu(string nameOfCurrentScene)
+    public void ShowMainMenu(int indexOfCurrentScene)
     {
-        SceneManager.UnloadSceneAsync(nameOfCurrentScene);
-        SceneManager.SetActiveScene(MainMenuScene);
+        SceneManager.LoadScene(MainMenuSceneNo);
+        //SceneManager.UnloadSceneAsync(indexOfCurrentScene);
     }
 
     public void CloseApplication()
     {
-        SceneManager.UnloadSceneAsync(HelpScene.name);
-        SceneManager.UnloadSceneAsync(HighScoreScene.name);
-        SceneManager.UnloadSceneAsync(GamePlayScene.name);
-
         Application.Quit(0);
     }
 
