@@ -80,7 +80,6 @@ public class SceneHandler : MonoBehaviour
     public void ShowMainMenu(int indexOfCurrentScene)
     {
         SceneManager.LoadScene(MainMenuSceneNo);
-        //SceneManager.UnloadSceneAsync(indexOfCurrentScene);
     }
 
     public void CloseApplication()

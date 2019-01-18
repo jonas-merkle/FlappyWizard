@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 91cec168e3f9ccd41ad4fe8786c44b9b
   - enabled: 1
     path: Assets/Scenes/Game/Game.unity
-    guid: dd2f71963967134428b9e995c71c35f1
+    guid: e3cc31f8f9414114f9ffa75df9c041cb
   - enabled: 1
     path: Assets/Scenes/Menu/HighScore.unity
     guid: d3e680382cb43d54e859e09f456e026e

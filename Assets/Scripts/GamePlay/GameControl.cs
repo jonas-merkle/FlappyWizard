@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,17 +14,21 @@ public class GameControl : MonoBehaviour
     public float SpeedIncrementPerSecond = -0.001f;     // the speed increment per second during the game;
     public float CurrentGameSpeed;                      // the current scroll speed of the game
     public bool GamePaused = false;                     // flag if the game is paused 
-    public bool GameOver= false;                        // flag if the game is over
+    public bool GameOver = false;                       // flag if the game is over
 
     // item stuff
     public bool Troll = false;                  // flag to indicate if the 'Troll' item was hit
     public bool Invulnerability = false;        // flag to indicate if the 'Invulnerability' item was hit
     public bool Turbo = false;                  // flag to indicate if the 'Turbo' item was hit
     public bool DoublePoints = false;           // flag to indicate if the 'DoublePoints' item was hit
-    public float EffectDuration = 5;            // the duration of item caused effects 
-    public float TimeOfEffectStart;             // the system time of the start of an item effect
+    public double EffectDuration = 5;           // the duration of item caused effects 
+    public double TimeOfEffectStart;            // the system time of the start of an item effect
 
+    // high score 
     public bool NewHighScore = false;           // flag to indelicate if a new high score has been reached
+
+    // system status
+    public bool GameIsStarted = false;
 
     #endregion
 
@@ -41,6 +46,7 @@ public class GameControl : MonoBehaviour
     public Text ItemText;                       // the text box where the current activated power-up item is displayed
     public GameObject PausedScreen;             // the instance of the pause screen
     public GameObject GameOverScreen;           // the instance of the game over screen
+    public GameObject GamePlayScreen;
 
     #endregion
 
@@ -54,38 +60,29 @@ public class GameControl : MonoBehaviour
             Instance = this;
         else if (Instance != this)
             Destroy(gameObject);
-
-        // setup ui
-        ScoreText.text = ((long) _score * (-1)).ToString(CultureInfo.InvariantCulture);
-        ItemText.text = "-";
-
-        // setting some game variables
-        CurrentGameSpeed = StartSpeed;
-        GameOver = false;
-        GamePaused = false;
-
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        // register event bindings (delegates)
-        CharacterCollisionHandler.Instance.CollisionDetected += ItemHit;
-
-        // init the score
-        _score += -1.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // speed up the scrolling
-        if (Time.time > _lastSpeedUpdateTime + 1)
+        // start game
+        if (!GameIsStarted)
         {
-            CurrentGameSpeed += SpeedIncrementPerSecond;
-            _lastSpeedUpdateTime = Time.time;
+            StartGame();
         }
         
+        // speed up the scrolling
+        if (time() > _lastSpeedUpdateTime + 1)
+        {
+            CurrentGameSpeed += SpeedIncrementPerSecond;
+            _lastSpeedUpdateTime = time();
+        }
+
         // check for pause key
         if (!GamePaused && !GameOver && Input.GetButton("Cancel"))
         {
@@ -98,11 +95,11 @@ public class GameControl : MonoBehaviour
             // check if double point effect is active
             if (DoublePoints)
             {
-                _score += ((Time.time * CurrentGameSpeed) / 1000) * 2;
+                _score += ((time() * CurrentGameSpeed) / 1000) * 2;
             }
             else
             {
-                _score += (Time.time * CurrentGameSpeed) / 1000;
+                _score += (time() * CurrentGameSpeed) / 1000;
             }
 
             ScoreText.text = ((long)_score * (-1)).ToString(CultureInfo.InvariantCulture);
@@ -130,6 +127,40 @@ public class GameControl : MonoBehaviour
     public float time()
     {
         return Time.time - _timeOfStartOfGame;
+    }
+
+    // start a new Game
+    public void StartGame()
+    {
+        // register event bindings (delegates)
+        CharacterCollisionHandler.Instance.CollisionDetected += ItemHit;
+
+        // set time offset
+        _timeOfStartOfGame = Time.time;
+
+        // setup ui
+        PausedScreen.SetActive(false);
+        GameOverScreen.SetActive(false);
+        GamePlayScreen.SetActive(true);
+        
+        ScoreText.text = ((long)_score * (-1)).ToString(CultureInfo.InvariantCulture);
+        ItemText.text = "-";
+
+        // setting some game variables
+        CurrentGameSpeed = StartSpeed;
+        GameOver = false;
+        GamePaused = false;
+        Troll = false; 
+        Invulnerability = false;
+        Turbo = false;
+        DoublePoints = false;
+        NewHighScore = false;
+
+        // rest
+        GameIsStarted = true;
+
+        // init the score
+        _score += -1.0f;
     }
 
     #endregion
@@ -174,7 +205,8 @@ public class GameControl : MonoBehaviour
         if (Invulnerability)
         {
             // Move the object out of the way 
-            e.Collider.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(-1000, 0);
+            if (e.Collider.gameObject.GetComponent<Rigidbody2D>() != null)
+                e.Collider.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(-1000, 0);
 
             return;
         }
@@ -224,7 +256,7 @@ public class GameControl : MonoBehaviour
 
                 return;
             }
-            
+
             // Move the object out of the way 
             e.Collider.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(-1000, 0);
 

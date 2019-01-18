@@ -38,7 +38,7 @@ public class CharacterControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // select game character
+        // select character
         if (SceneHandler.Instance.SelectedCharacter != null)
         {
             if (SceneHandler.Instance.SelectedCharacter.Equals("cedric"))
