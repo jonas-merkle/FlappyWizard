@@ -1,7 +1,6 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ButtonHandler
+public class ButtonHandler : MonoBehaviour
 {
     public void CloseApplicationClicked()
     {
