@@ -42,8 +42,8 @@ public class SpawnHandler : MonoBehaviour
 
     // distances
     public float _totalMovedDistance;
-    private float _distanceOfLastTowerSpawn;
-    private float _distanceOfLastItemSpawn;
+    private float _distanceOfNextTowerSpawn;
+    private float _distanceOfNextItemSpawn;
 
     // flags
     public bool _mainSpawnAreaIsFree;
@@ -74,8 +74,8 @@ public class SpawnHandler : MonoBehaviour
 
         // set the initial values
         _totalMovedDistance = 0;
-        _distanceOfLastItemSpawn = 0;
-        _distanceOfLastTowerSpawn = 0;
+        _distanceOfNextItemSpawn = 0;
+        _distanceOfNextTowerSpawn = 0;
         _mainSpawnAreaIsFree = true;
         _lastSpawnedObject = null;
     }
@@ -83,14 +83,17 @@ public class SpawnHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // set new random seed
+        Random.InitState(DateTime.Now.Millisecond);
+
         // check if a new item could be spawned
-        if (_mainSpawnAreaIsFree && _totalMovedDistance > _distanceOfLastItemSpawn + MinItemDistance)
+        if (_mainSpawnAreaIsFree && _totalMovedDistance > _distanceOfNextItemSpawn)
         {
             _spawnItem();
         }
 
         // check if a new tower could be spawned
-        if (_mainSpawnAreaIsFree && _totalMovedDistance > _distanceOfLastTowerSpawn + MinTowerDistance)
+        if (_mainSpawnAreaIsFree && _totalMovedDistance > _distanceOfNextTowerSpawn)
         {
             _spawnTower();
         }
@@ -102,7 +105,8 @@ public class SpawnHandler : MonoBehaviour
 
     private void _spawnItem()
     {
-        _distanceOfLastItemSpawn = _totalMovedDistance;
+        // set distance at which the next item could spawn
+        _distanceOfNextItemSpawn = _totalMovedDistance + MinItemDistance + Random.Range(-ItemSpawnScattering, ItemSpawnScattering); 
 
         // spawn probability 
         if (Random.Range(0, 1.0f) > ItemSpawnProbability)
@@ -144,7 +148,8 @@ public class SpawnHandler : MonoBehaviour
 
     private void _spawnTower()
     {
-        _distanceOfLastTowerSpawn = _totalMovedDistance;
+        // set distance at which the next tower could spawn
+        _distanceOfNextTowerSpawn = _totalMovedDistance + MinTowerDistance + Random.Range(-TowerSpawnScattering, TowerSpawnScattering);
 
         // spawn probability 
         if (Random.Range(0, 1.0f) > TowerSpawnProbability)

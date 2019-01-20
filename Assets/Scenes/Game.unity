@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 500469213}
   - component: {fileID: 500469212}
   m_Layer: 0
-  m_Name: GamePlayContorller
+  m_Name: GamePlayController
   m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartSpeed: -0.5
   SpeedIncrement: -0.001
-  SpeedIncrementDeltaTime: 1
+  SpeedIncrementDeltaTime: 0.5
   CurrentGameSpeed: -0.5
   GamePaused: 0
   GameOver: 0
