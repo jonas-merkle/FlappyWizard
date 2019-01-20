@@ -34,6 +34,7 @@ public class GameControl : MonoBehaviour
     private double _score = 0;                  // the reached score 
     private float _lastSpeedUpdateTime = 0;     // GetInGameTime of last speed update
     private float _timeOfStartOfGame = 0;       // the GetInGameTime when a new game has started
+    private float _origSpeed = 0;               // the original in game speed 
 
     #endregion
 
@@ -45,7 +46,7 @@ public class GameControl : MonoBehaviour
     public Text PlayerNameInputText;            // the text box where the player can enter his player name
     public GameObject PausedScreen;             // the instance of the pause screen
     public GameObject GameOverScreen;           // the instance of the game over screen
-    public GameObject GamePlayScreen;           // the inctance of the game play screen
+    public GameObject GamePlayScreen;           // the instance of the game play screen
 
     #endregion
 
@@ -103,6 +104,12 @@ public class GameControl : MonoBehaviour
     {
         if ((Troll || Invulnerability || Turbo || DoublePoints) && GetInGameTime() > TimeOfEffectStart + EffectDuration)
         {
+            // reset speed
+            if (Turbo)
+            {
+                CurrentGameSpeed = _origSpeed;
+            }
+
             // reset all effects
             Troll = false;
             Invulnerability = false;
@@ -255,6 +262,8 @@ public class GameControl : MonoBehaviour
             {
                 Turbo = true;
                 ItemText.text = "Turbo";
+                _origSpeed = CurrentGameSpeed;
+                CurrentGameSpeed *= 2;
             }
             else if ("item_silver".Equals(itemType))
             {

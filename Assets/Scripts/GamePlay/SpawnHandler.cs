@@ -78,14 +78,14 @@ public class SpawnHandler : MonoBehaviour
         _distanceOfNextTowerSpawn = 0;
         _mainSpawnAreaIsFree = true;
         _lastSpawnedObject = null;
+
+        // set new random seed
+        Random.InitState(DateTime.Now.Millisecond);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // set new random seed
-        Random.InitState(DateTime.Now.Millisecond);
-
         // check if a new item could be spawned
         if (_mainSpawnAreaIsFree && _totalMovedDistance > _distanceOfNextItemSpawn)
         {
