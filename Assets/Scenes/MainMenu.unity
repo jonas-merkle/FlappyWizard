@@ -310,7 +310,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Flappy Wizzard
+  m_Text: Flappy Wizard
 --- !u!222 &385865179
 CanvasRenderer:
   m_ObjectHideFlags: 0

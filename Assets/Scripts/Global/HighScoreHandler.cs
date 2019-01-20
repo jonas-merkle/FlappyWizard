@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 using UnityEngine;
+using System.IO;
 
 public class HighScoreHandler : MonoBehaviour
 {
@@ -65,7 +66,15 @@ public class HighScoreHandler : MonoBehaviour
 
     public void WriteHighScoreList()
     {
-        File.WriteAllText(PathToFile, JsonConvert.SerializeObject(_highScoreList));
+        try
+        {
+            File.WriteAllText(PathToFile, JsonConvert.SerializeObject(_highScoreList));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 
     public void AddScore(string playerName, int score)
