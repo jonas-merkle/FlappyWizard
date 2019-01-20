@@ -67,8 +67,8 @@
     <Compile Include="Assets\Scripts\GamePlay\MovedDistanceTrigger.cs" />
     <Compile Include="Assets\Scripts\GamePlay\Pool.cs" />
     <Compile Include="Assets\Scripts\GamePlay\PoolObject.cs" />
-    <Compile Include="Assets\Scripts\GamePlay\ResumeButtonHandler.cs" />
     <Compile Include="Assets\Scripts\GamePlay\SkyScroller.cs" />
+    <Compile Include="Assets\Scripts\GamePlay\SpawnHandler.cs" />
     <Compile Include="Assets\Scripts\Global\ButtonHandler.cs" />
     <Compile Include="Assets\Scripts\Global\SceneHandler.cs" />
     <Reference Include="Unity.PackageManagerUI.Editor">

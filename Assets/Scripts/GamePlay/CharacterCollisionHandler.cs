@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CharacterCollisionHandler : MonoBehaviour
 {
+    // Static global instance of the class
     public static CharacterCollisionHandler Instance;
 
     #region basic unity functions
@@ -49,8 +50,11 @@ public class CharacterCollisionHandler : MonoBehaviour
 
 public class CollisionEventArgs : EventArgs
 {
+    // the object that caused the collision
     public Collider2D Collider { get; set; }
+    // the GetInGameTime when the collision occured
     public float TimeOfCollision { get; set; }
+    // the tag which the object that caused the collision has
     public string CollisionObjectTag { get; set; }
 }
 

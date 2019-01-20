@@ -22,9 +22,16 @@ public class ButtonHandler : MonoBehaviour
         SceneHandler.Instance.ShowHelp();
     }
 
-    public void BackToMainMenuClicked(int indexOfCurrentScene)
+    public void BackToMainMenuClicked()
     {
-        SceneHandler.Instance.ShowMainMenu(indexOfCurrentScene);
-    } 
+        SceneHandler.Instance.ShowMainMenu();
+    }
+
+    public void ResumButtonClicked(GameObject pausedScreen)
+    {
+        pausedScreen.SetActive(false);
+        GameControl.Instance.GamePaused = false;
+        Time.timeScale = 1.0f;
+    }
 
 }

@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneHandler : MonoBehaviour
 {
-    #region public members
-
-    // SceneHandler instance 
+    // Static global instance of the class
     public static SceneHandler Instance;
+
+    #region public members
 
     // selected character
     public string SelectedCharacter = "harry";
@@ -40,7 +40,6 @@ public class SceneHandler : MonoBehaviour
             Destroy(gameObject);
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +56,7 @@ public class SceneHandler : MonoBehaviour
 
     #region public scene mamagement functions
 
+    // start a new game with a given character
     public void StartGame(string character)
     {
         SelectedCharacter = character;
@@ -65,23 +65,28 @@ public class SceneHandler : MonoBehaviour
         SceneManager.LoadScene(GamePlaySceneNo);
     }
 
+    // function to load the high score view
     public void ShowHighScore()
     {
         // load high score scene
         SceneManager.LoadScene(HighScoreSceneNo);
     }
 
+    // function to load the help menu
     public void ShowHelp()
     {
         // load help scene & set it active
         SceneManager.LoadScene(HelpSceneNo);
     }
 
-    public void ShowMainMenu(int indexOfCurrentScene)
+    // function to load the main menu
+    public void ShowMainMenu()
     {
+        // load main menu scene & set it active
         SceneManager.LoadScene(MainMenuSceneNo);
     }
 
+    // function to close the Application 
     public void CloseApplication()
     {
         Application.Quit(0);

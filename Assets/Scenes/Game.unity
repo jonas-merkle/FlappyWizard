@@ -547,7 +547,6 @@ GameObject:
   m_Component:
   - component: {fileID: 389050501}
   - component: {fileID: 389050500}
-  - component: {fileID: 389050502}
   m_Layer: 0
   m_Name: ButtonHandler
   m_TagString: Untagged
@@ -581,19 +580,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &389050502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389050499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4cc728af72de3644a8b4094f967fe7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PausedScreen: {fileID: 318814600}
 --- !u!1 &391472142
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +742,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 389050500}
         m_MethodName: BackToMainMenuClicked
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -765,17 +751,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 389050502}
-        m_MethodName: resetGameState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &413567317
@@ -1122,18 +1097,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartSpeed: -0.5
-  SpeedIncrementPerSecond: -0.05
+  SpeedIncrement: -0.001
+  SpeedIncrementDeltaTime: 1
   CurrentGameSpeed: -0.5
   GamePaused: 0
   GameOver: 0
+  NewHighScore: 0
   Troll: 0
   Invulnerability: 0
   Turbo: 0
   DoublePoints: 0
   EffectDuration: 5
   TimeOfEffectStart: 0
-  NewHighScore: 0
-  GameIsStarted: 0
   ScoreText: {fileID: 314559128}
   ItemText: {fileID: 675301377}
   PausedScreen: {fileID: 318814600}
@@ -2384,7 +2359,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 389050500}
         m_MethodName: BackToMainMenuClicked
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2393,17 +2368,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 389050502}
-        m_MethodName: resetGameState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1205922109
@@ -2699,12 +2663,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 389050502}
-        m_MethodName: OnResumButtonClicked
-        m_Mode: 1
+      - m_Target: {fileID: 389050500}
+        m_MethodName: ResumButtonClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 318814600}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 

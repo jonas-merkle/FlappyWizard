@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class MovedDistanceTrigger : MonoBehaviour
 {
+    // Static global instance of the class
+    public static MovedDistanceTrigger Instance;
+
     #region public members
 
-    public static MovedDistanceTrigger Instance;
-    
     public Vector2 StartPos = new Vector2(1, 0);
 
     #endregion
@@ -26,13 +27,12 @@ public class MovedDistanceTrigger : MonoBehaviour
             Instance = this;
         else if (Instance != this)
             Destroy(gameObject);
-
-        _body = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        _body = GetComponent<Rigidbody2D>();
         _body.position = StartPos;
     }
 
@@ -58,7 +58,6 @@ public class MovedDistanceTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         // trigger movement event
-
         MovedDistanceTriggerEventArgs args = new MovedDistanceTriggerEventArgs();
         args.MovedDistance = StartPos.x - _body.position.x;
         OnUnitMovementDetected(args);

@@ -2,6 +2,7 @@
 
 public class CharacterControl : MonoBehaviour
 {
+    // Static global instance of the class
     public static CharacterControl Instance;
 
     #region public members

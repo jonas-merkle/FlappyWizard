@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
+    // Static global instance of the class
     public static GameControl Instance;
 
     #region public members
 
+    // general game settings & co.
     public float StartSpeed = -0.25f;                   // the speed at the beginning of a game
-    public float SpeedIncrementPerSecond = -0.001f;     // the speed increment per second during the game;
+    public float SpeedIncrement = -0.001f;              // the speed increment per second during the game
+    public float SpeedIncrementDeltaTime = 1;           // the delta time between speed increments
     public float CurrentGameSpeed;                      // the current scroll speed of the game
     public bool GamePaused = false;                     // flag if the game is paused 
     public bool GameOver = false;                       // flag if the game is over
+    public bool NewHighScore = false;                   // flag to indelicate if a new high score has been reached
 
     // item stuff
     public bool Troll = false;                  // flag to indicate if the 'Troll' item was hit
@@ -21,21 +25,15 @@ public class GameControl : MonoBehaviour
     public bool Turbo = false;                  // flag to indicate if the 'Turbo' item was hit
     public bool DoublePoints = false;           // flag to indicate if the 'DoublePoints' item was hit
     public double EffectDuration = 5;           // the duration of item caused effects 
-    public double TimeOfEffectStart;            // the system time of the start of an item effect
-
-    // high score 
-    public bool NewHighScore = false;           // flag to indelicate if a new high score has been reached
-
-    // system status
-    public bool GameIsStarted = false;
+    public double TimeOfEffectStart = 0;        // the system GetInGameTime of the start of an item effect
 
     #endregion
 
     #region private members
 
     private double _score = 0;                  // the reached score 
-    private float _lastSpeedUpdateTime = 0;     // time of last speed update
-    private float _timeOfStartOfGame = 0;       // the time when a new game has started
+    private float _lastSpeedUpdateTime = 0;     // GetInGameTime of last speed update
+    private float _timeOfStartOfGame = 0;       // the GetInGameTime when a new game has started
 
     #endregion
 
@@ -45,7 +43,7 @@ public class GameControl : MonoBehaviour
     public Text ItemText;                       // the text box where the current activated power-up item is displayed
     public GameObject PausedScreen;             // the instance of the pause screen
     public GameObject GameOverScreen;           // the instance of the game over screen
-    public GameObject GamePlayScreen;
+    public GameObject GamePlayScreen;           // the inctance of the game play screen
 
     #endregion
 
@@ -64,48 +62,44 @@ public class GameControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // start a new Game
+        StartGame();
     }
 
     // Update is called once per frame
     void Update()
-    {
-        // start game
-        if (!GameIsStarted)
-        {
-            StartGame();
-        }
-        
+    {   
         // speed up the scrolling
-        if (time() > _lastSpeedUpdateTime + 1)
-        {
-            CurrentGameSpeed += SpeedIncrementPerSecond;
-            _lastSpeedUpdateTime = time();
-        }
+        _updateSpeed();
 
         // check for pause key
-        if (!GamePaused && !GameOver && Input.GetButton("Cancel"))
-        {
-            DoGamePause();
-        }
+        _checkForPausedKeyPressed();
 
         // update score
-        if (!GamePaused && !GameOver)
-        {
-            // check if double point effect is active
-            if (DoublePoints)
-            {
-                _score += ((time() * CurrentGameSpeed) / 1000) * 2;
-            }
-            else
-            {
-                _score += (time() * CurrentGameSpeed) / 1000;
-            }
-
-            ScoreText.text = ((long)_score * (-1)).ToString(CultureInfo.InvariantCulture);
-        }
+        _updateScore();
 
         // check if effect is over
-        if ((Troll || Invulnerability || Turbo || DoublePoints) && time() > TimeOfEffectStart + EffectDuration)
+        _updateEffects();
+    }
+
+    #endregion
+
+    #region public function
+
+    // function to get the real GetInGameTime since a game has started
+    public float GetInGameTime()
+    {
+        return Time.time - _timeOfStartOfGame;
+    }
+
+    #endregion
+
+    #region private functions
+
+    // function that checks the state of effects and updates them
+    private void _updateEffects()
+    {
+        if ((Troll || Invulnerability || Turbo || DoublePoints) && GetInGameTime() > TimeOfEffectStart + EffectDuration)
         {
             // reset all effects
             Troll = false;
@@ -118,30 +112,54 @@ public class GameControl : MonoBehaviour
         }
     }
 
-    #endregion
-
-    #region public function
-
-    // function to get the real time since a game has started
-    public float time()
+    // function to update the score
+    private void _updateScore()
     {
-        return Time.time - _timeOfStartOfGame;
+        if (!GamePaused && !GameOver)
+        {
+            // check if double point effect is active
+            if (DoublePoints)
+            {
+                _score += ((GetInGameTime() * CurrentGameSpeed) / 1000) * 2;
+            }
+            else
+            {
+                _score += (GetInGameTime() * CurrentGameSpeed) / 1000;
+            }
+
+            ScoreText.text = ((long)_score * (-1)).ToString(CultureInfo.InvariantCulture);
+        }
     }
 
-    // start a new Game
-    public void StartGame()
+    // function to check if the paused key has been pressed
+    private void _checkForPausedKeyPressed()
+    {
+        if (!GamePaused && !GameOver && Input.GetButton("Cancel"))
+        {
+            DoGamePause();
+        }
+    }
+
+    // function to update the speed
+    private void _updateSpeed()
+    {
+        if (GetInGameTime() > _lastSpeedUpdateTime + SpeedIncrementDeltaTime)
+        {
+            CurrentGameSpeed += SpeedIncrement;
+            _lastSpeedUpdateTime = GetInGameTime();
+        }
+    }
+
+    // function which gets called when a new game gets started
+    private void StartGame()
     {
         // register event bindings (delegates)
         CharacterCollisionHandler.Instance.CollisionDetected += ItemHit;
-
-        // set time offset
-        _timeOfStartOfGame = Time.time;
 
         // setup ui
         PausedScreen.SetActive(false);
         GameOverScreen.SetActive(false);
         GamePlayScreen.SetActive(true);
-        
         ScoreText.text = ((long)_score * (-1)).ToString(CultureInfo.InvariantCulture);
         ItemText.text = "-";
 
@@ -149,23 +167,21 @@ public class GameControl : MonoBehaviour
         CurrentGameSpeed = StartSpeed;
         GameOver = false;
         GamePaused = false;
-        Troll = false; 
+        Troll = false;
         Invulnerability = false;
         Turbo = false;
         DoublePoints = false;
         NewHighScore = false;
 
-        // rest
-        GameIsStarted = true;
-
         // init the score
         _score += -1.0f;
+
+        // start the GetInGameTime & set GetInGameTime offset
+        Time.timeScale = 1.0f;
+        _timeOfStartOfGame = Time.time;
     }
 
-    #endregion
-
-    #region private functions
-
+    // function which gets called if the game is paused
     private void DoGamePause()
     {
         Time.timeScale = 0.0f;
@@ -173,6 +189,7 @@ public class GameControl : MonoBehaviour
         PausedScreen.SetActive(true);
     }
 
+    // function which gets called if the game is over
     private void DoGameOver()
     {
         Time.timeScale = 0.0f;
@@ -259,8 +276,8 @@ public class GameControl : MonoBehaviour
             // Move the object out of the way 
             e.Collider.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(-1000, 0);
 
-            // set time of effect start
-            TimeOfEffectStart = time();
+            // set GetInGameTime of effect start
+            TimeOfEffectStart = GetInGameTime();
         }
     }
 
