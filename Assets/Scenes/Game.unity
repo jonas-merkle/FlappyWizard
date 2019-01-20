@@ -836,7 +836,8 @@ MonoBehaviour:
   PoolPos: {x: 26, y: 10}
   MaxY: 4.5
   MinY: -4.5
-  OnTurboY: -2
+  OnTurboY: 0
+  OnTrollYDecrement: 0
   EndOfScreenX: -10
 --- !u!114 &500469213
 MonoBehaviour:
@@ -856,7 +857,8 @@ MonoBehaviour:
   PoolPos: {x: 24, y: 10}
   MaxY: 4.5
   MinY: -4.5
-  OnTurboY: -2
+  OnTurboY: 0
+  OnTrollYDecrement: 0
   EndOfScreenX: -10
 --- !u!114 &500469214
 MonoBehaviour:
@@ -876,7 +878,8 @@ MonoBehaviour:
   PoolPos: {x: 22, y: 10}
   MaxY: 4.5
   MinY: -4.5
-  OnTurboY: -2
+  OnTurboY: 0
+  OnTrollYDecrement: 0
   EndOfScreenX: -10
 --- !u!114 &500469215
 MonoBehaviour:
@@ -896,7 +899,8 @@ MonoBehaviour:
   PoolPos: {x: 20, y: 10}
   MaxY: 4.5
   MinY: -4.5
-  OnTurboY: -2
+  OnTurboY: 0
+  OnTrollYDecrement: 0
   EndOfScreenX: -10
 --- !u!114 &500469216
 MonoBehaviour:
@@ -916,7 +920,8 @@ MonoBehaviour:
   PoolPos: {x: 18, y: 10}
   MaxY: -1.45
   MinY: -5.23
-  OnTurboY: -2
+  OnTurboY: -5.23
+  OnTrollYDecrement: 0
   EndOfScreenX: -10
 --- !u!114 &500469217
 MonoBehaviour:
@@ -936,7 +941,8 @@ MonoBehaviour:
   PoolPos: {x: 16, y: 10}
   MaxY: -1.45
   MinY: -5.23
-  OnTurboY: -2
+  OnTurboY: -5.23
+  OnTrollYDecrement: 0
   EndOfScreenX: -10
 --- !u!114 &500469218
 MonoBehaviour:
@@ -956,7 +962,8 @@ MonoBehaviour:
   PoolPos: {x: 14, y: 10}
   MaxY: -1.45
   MinY: -5.23
-  OnTurboY: -2
+  OnTurboY: -5.23
+  OnTrollYDecrement: 0
   EndOfScreenX: -10
 --- !u!114 &500469219
 MonoBehaviour:
@@ -976,7 +983,8 @@ MonoBehaviour:
   PoolPos: {x: 12, y: 10}
   MaxY: -1.45
   MinY: -5.23
-  OnTurboY: -2
+  OnTurboY: -5.23
+  OnTrollYDecrement: 0
   EndOfScreenX: -10
 --- !u!114 &500469220
 MonoBehaviour:
@@ -996,7 +1004,8 @@ MonoBehaviour:
   PoolPos: {x: 10, y: 10}
   MaxY: 3.5
   MinY: 0
-  OnTurboY: -2
+  OnTurboY: 3.5
+  OnTrollYDecrement: 0.5
   EndOfScreenX: -10
 --- !u!114 &500469221
 MonoBehaviour:
@@ -1090,9 +1099,12 @@ MonoBehaviour:
   MinTowerDistance: 5
   MinItemDistance: 10
   TowerSpawnProbability: 0.8
-  ItemSpawnProbability: 0.5
+  ItemSpawnProbability: 0.65
+  GhostSpawnProbability: 1
   TowerSpawnScattering: 1
   ItemSpawnScattering: 2
+  MaxHightOfTowerToSpawnGhost: -4
+  DistanceOfGhostToTower: 7.5
   SpawnPos: {x: 15, y: 0}
   _totalMovedDistance: 0
   _mainSpawnAreaIsFree: 0

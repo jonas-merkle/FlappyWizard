@@ -27,8 +27,11 @@ public class SpawnHandler : MonoBehaviour
     public float MinItemDistance;
     public float TowerSpawnProbability;
     public float ItemSpawnProbability;
+    public float GhostSpawnProbability;
     public float TowerSpawnScattering;
     public float ItemSpawnScattering;
+    public float MaxHightOfTowerToSpawnGhost = -4;
+    public float DistanceOfGhostToTower = 7.5f;
 
     // positions
     public Vector2 SpawnPos = new Vector2(15, 0);
@@ -174,11 +177,33 @@ public class SpawnHandler : MonoBehaviour
         // generate random y pos
         Vector2 spawnVect = SpawnPos + new Vector2(0, Random.Range(currentPool.MinY, currentPool.MaxY));
 
+        // spawn a ghost
+        if (spawnVect.y <= MaxHightOfTowerToSpawnGhost)
+        {
+            _spawnGhost(spawnVect.y);
+        }
+
         // spawn object
         _lastSpawnedObject = currentPool.SpawnNextObject(spawnVect);
 
         // mark spawn area as occupied
         _mainSpawnAreaIsFree = false;
+    }
+
+    private void _spawnGhost(float heightOfTower)
+    {
+        // spawn probability 
+        if (Random.Range(0, 1.0f) > GhostSpawnProbability)
+        {
+            // don't spawn an ghost
+            return;
+        }
+
+        // generate random y pos
+        Vector2 spawnVect = SpawnPos + new Vector2(0, Random.Range(heightOfTower + DistanceOfGhostToTower, GhostPoolHandler.MaxY));
+
+        // spawn object
+        GhostPoolHandler.SpawnNextObject(spawnVect);
     }
 
     #endregion
