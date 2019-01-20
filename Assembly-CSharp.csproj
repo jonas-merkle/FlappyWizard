@@ -71,7 +71,10 @@
     <Compile Include="Assets\Scripts\GamePlay\SpawnHandler.cs" />
     <Compile Include="Assets\Scripts\GamePlay\TriggerPointCollisionHandler.cs" />
     <Compile Include="Assets\Scripts\Global\ButtonHandler.cs" />
+    <Compile Include="Assets\Scripts\Global\HighScoreHandler.cs" />
     <Compile Include="Assets\Scripts\Global\SceneHandler.cs" />
+    <Compile Include="Assets\Scripts\HighScoreView\DisplayHighScore.cs" />
+    <None Include="Assets\JsonDotNet\link.xml" />
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>C:/Users/jonas/Documents/git/uni/sopra/FlappyWizard/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
@@ -290,6 +293,9 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>C:/Users/jonas/Documents/git/uni/sopra/FlappyWizard/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:/Users/jonas/Documents/git/uni/sopra/FlappyWizard/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.0f2/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

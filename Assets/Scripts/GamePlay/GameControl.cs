@@ -41,6 +41,8 @@ public class GameControl : MonoBehaviour
 
     public Text ScoreText;                      // the text box where the score is displayed
     public Text ItemText;                       // the text box where the current activated power-up item is displayed
+    public Text ScoreAtGameOverText;            // the text box where the score in the game over screen is displayed
+    public Text PlayerNameInputText;            // the text box where the player can enter his player name
     public GameObject PausedScreen;             // the instance of the pause screen
     public GameObject GameOverScreen;           // the instance of the game over screen
     public GameObject GamePlayScreen;           // the inctance of the game play screen
@@ -195,15 +197,7 @@ public class GameControl : MonoBehaviour
         Time.timeScale = 0.0f;
         GameOver = true;
         GameOverScreen.SetActive(true);
-
-        // calculate high score
-        int reachedScore = Convert.ToInt32(ScoreText.text);
-        int currentHighScore = PlayerPrefs.GetInt("HighScore");
-        if (reachedScore > currentHighScore)
-        {
-            PlayerPrefs.SetInt("HighScore", currentHighScore);
-            NewHighScore = true;
-        }
+        ScoreAtGameOverText.text = ScoreText.text;
     }
 
     #endregion
@@ -218,11 +212,13 @@ public class GameControl : MonoBehaviour
             return;
 
         // check if  player has invulnerability
-        if (Invulnerability)
+        if (Invulnerability && !"Item".Equals(e.CollisionObjectTag))
         {
             // Move the object out of the way 
             if (e.Collider.gameObject.GetComponent<Rigidbody2D>() != null)
+            {
                 e.Collider.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(-1000, 0);
+            }
 
             return;
         }

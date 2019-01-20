@@ -33,6 +33,9 @@ public class GameObjectPoolHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // register event bindings (delegates)
+        CharacterCollisionHandler.Instance.CollisionDetected += ItemHit;
+
         _objectPool = new Pool(GameObjectPrefab, PoolSize, PoolPos);
         _nextFormPool = 0;
     }
@@ -133,4 +136,26 @@ public class GameObjectPoolHandler : MonoBehaviour
     }
 
     #endregion
+
+    // event that gets called when the player collides with another object
+    private void ItemHit(object sender, CollisionEventArgs e)
+    {
+        // null check
+        if (e.Collider == null)
+            return;
+
+        // collision with item
+        if ("Item".Equals(e.CollisionObjectTag))
+        {
+
+            foreach (var obj in _objectPool.PoolObjects)
+            {
+                if (obj.GameObject.GetComponent<PolygonCollider2D>().Equals(e.Collider))
+                {
+                    obj.IsOnScreen = false;
+                    obj.GameObject.GetComponent<Rigidbody2D>().position = new Vector2(-1000, 0);
+                }
+            }
+        }
+    }
 }

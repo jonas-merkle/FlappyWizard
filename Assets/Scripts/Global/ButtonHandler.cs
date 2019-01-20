@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
 public class ButtonHandler : MonoBehaviour
 {
@@ -32,6 +34,13 @@ public class ButtonHandler : MonoBehaviour
         pausedScreen.SetActive(false);
         GameControl.Instance.GamePaused = false;
         Time.timeScale = 1.0f;
+    }
+
+    public void SaveButtonClicked()
+    {
+        HighScoreHandler.Instance.AddScore(GameControl.Instance.PlayerNameInputText.text, int.Parse(GameControl.Instance.ScoreText.text));
+
+        BackToMainMenuClicked();
     }
 
 }
