@@ -5,18 +5,18 @@ public class GameObjectPoolHandler : MonoBehaviour
     #region public members
 
     public GameObject GameObjectPrefab;
-    public float SpawnDistance = 0.05f;
-    public float SpawnScattering = 0.0f;
-    public float SpawnProbability = 0.1f;
+    //public float SpawnDistance = 0.05f;
+    //public float SpawnScattering = 0.0f;
+    //public float SpawnProbability = 0.1f;
     public int PoolSize = 10;
     public Vector2 PoolPos = new Vector2(20, 0);
-    public Vector2 SpawnPos = new Vector2(20, 0);
-    public Vector2 SpawnCollisionBoxSize = new Vector2(2, 5);
-    public Vector2 SpawnCollisionBoxOffset = new Vector2(0, 0);
+    //public Vector2 SpawnPos = new Vector2(20, 0);
+    //public Vector2 SpawnCollisionBoxSize = new Vector2(2, 5);
+    //public Vector2 SpawnCollisionBoxOffset = new Vector2(0, 0);
     public float MaxY = 5.0f;
     public float MinY = -5.0f;
-    public float onTurboY = -2.0f;
-    public float StartOfScreenX = +10.0f;
+    public float OnTurboY = -2.0f;
+    //public float StartOfScreenX = +10.0f;
     public float EndOfScreenX = -10.0f;
 
     #endregion
@@ -24,8 +24,8 @@ public class GameObjectPoolHandler : MonoBehaviour
     #region private members 
 
     private Pool _objectPool;
-    private float _distanceOfNextObject;
-    private float _totalMovedDistance;
+    //private float _distanceOfNextObject;
+    //private float _totalMovedDistance;
     private int _nextFormPool;
 
     #endregion
@@ -41,10 +41,10 @@ public class GameObjectPoolHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MovedDistanceTrigger.Instance.UnitMovementDetected += MovementTriggered;
+        //MovedDistanceTrigger.Instance.UnitMovementDetected += MovementTriggered;
         _objectPool = new Pool(GameObjectPrefab, PoolSize, PoolPos);
-        _distanceOfNextObject = SpawnDistance + Random.Range(-SpawnScattering, +SpawnScattering);
-        _totalMovedDistance = 0;
+        //_distanceOfNextObject = SpawnDistance + Random.Range(-SpawnScattering, +SpawnScattering);
+        //_totalMovedDistance = 0;
         _nextFormPool = 0;
     }
 
@@ -83,7 +83,7 @@ public class GameObjectPoolHandler : MonoBehaviour
                 // check if turbo mode is active
                 if (GameControl.Instance.Turbo)
                 {
-                    obj.GameObject.transform.position = new Vector2(obj.GameObject.transform.position.x, onTurboY);
+                    obj.GameObject.transform.position = new Vector2(obj.GameObject.transform.position.x, OnTurboY);
                 }
 
                 // check if an object is on scree
@@ -99,7 +99,25 @@ public class GameObjectPoolHandler : MonoBehaviour
 
     #endregion
 
-    private void SpawnObject()
+    public GameObject SpawnNextObject(Vector2 spawnPos)
+    {
+        GameObject currentGameObject = _objectPool.PoolObjects[_nextFormPool].GameObject;
+
+        // spawn object
+        currentGameObject.transform.position = spawnPos;
+
+        // set on screen flag
+        _objectPool.PoolObjects[_nextFormPool].IsOnScreen = true;
+
+        // select the next object from pool
+        _nextFormPool++;
+        if (_nextFormPool >= PoolSize)
+            _nextFormPool = 0;
+
+        return currentGameObject;
+    }
+
+    /*private void SpawnObject()
     {
         // randomly span a object
         if (Random.Range(0.0f, 1.0f) <= SpawnProbability)
@@ -111,7 +129,7 @@ public class GameObjectPoolHandler : MonoBehaviour
             if (GameControl.Instance.Turbo)
             {
                 // set object to a fixed position
-                initialPos = SpawnPos + new Vector2(0, onTurboY);
+                initialPos = SpawnPos + new Vector2(0, OnTurboY);
             }
             else
             {
@@ -161,5 +179,5 @@ public class GameObjectPoolHandler : MonoBehaviour
 
             SpawnObject();
         }
-    }
+    }*/
 }

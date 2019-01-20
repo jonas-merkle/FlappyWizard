@@ -801,6 +801,7 @@ GameObject:
   - component: {fileID: 500469223}
   - component: {fileID: 500469222}
   - component: {fileID: 500469221}
+  - component: {fileID: 500469224}
   - component: {fileID: 500469220}
   - component: {fileID: 500469219}
   - component: {fileID: 500469218}
@@ -831,18 +832,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 3627405996906587390, guid: b7639c545775e7746843349a15a62f49,
     type: 3}
-  SpawnDistance: 1
-  SpawnScattering: 0.5
-  SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 26, y: 10}
-  SpawnPos: {x: 15, y: 0}
-  SpawnCollisionBoxSize: {x: 2, y: 5}
-  SpawnCollisionBoxOffset: {x: 0, y: 0}
   MaxY: 4.5
   MinY: -4.5
-  onTurboY: -2
-  StartOfScreenX: 10
+  OnTurboY: -2
   EndOfScreenX: -10
 --- !u!114 &500469213
 MonoBehaviour:
@@ -858,18 +852,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 4299975889344116893, guid: 9b9b0d1835e3c6a428fbd83a42572b0a,
     type: 3}
-  SpawnDistance: 1
-  SpawnScattering: 0.5
-  SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 24, y: 10}
-  SpawnPos: {x: 15, y: 0}
-  SpawnCollisionBoxSize: {x: 2, y: 5}
-  SpawnCollisionBoxOffset: {x: 0, y: 0}
   MaxY: 4.5
   MinY: -4.5
-  onTurboY: -2
-  StartOfScreenX: 10
+  OnTurboY: -2
   EndOfScreenX: -10
 --- !u!114 &500469214
 MonoBehaviour:
@@ -885,18 +872,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 2632782608432091434, guid: 9d79a3adbf787744db57a64912a46410,
     type: 3}
-  SpawnDistance: 1
-  SpawnScattering: 0.5
-  SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 22, y: 10}
-  SpawnPos: {x: 15, y: 0}
-  SpawnCollisionBoxSize: {x: 2, y: 5}
-  SpawnCollisionBoxOffset: {x: 0, y: 0}
   MaxY: 4.5
   MinY: -4.5
-  onTurboY: -2
-  StartOfScreenX: 10
+  OnTurboY: -2
   EndOfScreenX: -10
 --- !u!114 &500469215
 MonoBehaviour:
@@ -912,18 +892,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 384519761581239487, guid: 7246cc73e7af05f45a9d53d3e82c40cc,
     type: 3}
-  SpawnDistance: 1
-  SpawnScattering: 0.5
-  SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 20, y: 10}
-  SpawnPos: {x: 15, y: 0}
-  SpawnCollisionBoxSize: {x: 2, y: 5}
-  SpawnCollisionBoxOffset: {x: 0, y: 0}
   MaxY: 4.5
   MinY: -4.5
-  onTurboY: -2
-  StartOfScreenX: 10
+  OnTurboY: -2
   EndOfScreenX: -10
 --- !u!114 &500469216
 MonoBehaviour:
@@ -939,18 +912,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 8827385346100872051, guid: 32557757157cd34478e3a6acce447e09,
     type: 3}
-  SpawnDistance: 0.1
-  SpawnScattering: 0.05
-  SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 18, y: 10}
-  SpawnPos: {x: 15, y: 0}
-  SpawnCollisionBoxSize: {x: 2, y: 5}
-  SpawnCollisionBoxOffset: {x: 0, y: 0}
   MaxY: -1.45
   MinY: -5.23
-  onTurboY: -2
-  StartOfScreenX: 10
+  OnTurboY: -2
   EndOfScreenX: -10
 --- !u!114 &500469217
 MonoBehaviour:
@@ -966,18 +932,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 5560537634614638191, guid: 60474a55e6f2a7242bd0bb2052bc19c6,
     type: 3}
-  SpawnDistance: 0.1
-  SpawnScattering: 0.05
-  SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 16, y: 10}
-  SpawnPos: {x: 15, y: 0}
-  SpawnCollisionBoxSize: {x: 2, y: 5}
-  SpawnCollisionBoxOffset: {x: 0, y: 0}
   MaxY: -1.45
   MinY: -5.23
-  onTurboY: -2
-  StartOfScreenX: 10
+  OnTurboY: -2
   EndOfScreenX: -10
 --- !u!114 &500469218
 MonoBehaviour:
@@ -993,18 +952,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 3903754484670463194, guid: 6e20f23b7a00c9b4794ff776a2a7b4b6,
     type: 3}
-  SpawnDistance: 0.1
-  SpawnScattering: 0.05
-  SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 14, y: 10}
-  SpawnPos: {x: 15, y: 0}
-  SpawnCollisionBoxSize: {x: 2, y: 5}
-  SpawnCollisionBoxOffset: {x: 0, y: 0}
   MaxY: -1.45
   MinY: -5.23
-  onTurboY: -2
-  StartOfScreenX: 10
+  OnTurboY: -2
   EndOfScreenX: -10
 --- !u!114 &500469219
 MonoBehaviour:
@@ -1020,18 +972,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 8118564234625839102, guid: 98b758473841b6a4991c1d2ea3ff44dc,
     type: 3}
-  SpawnDistance: 0.1
-  SpawnScattering: 0.5
-  SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 12, y: 10}
-  SpawnPos: {x: 15, y: 0}
-  SpawnCollisionBoxSize: {x: 2, y: 5}
-  SpawnCollisionBoxOffset: {x: 0, y: 0}
   MaxY: -1.45
   MinY: -5.23
-  onTurboY: -2
-  StartOfScreenX: 10
+  OnTurboY: -2
   EndOfScreenX: -10
 --- !u!114 &500469220
 MonoBehaviour:
@@ -1047,18 +992,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectPrefab: {fileID: 8571514459806267150, guid: 36c664101141d114b8361e01c872116a,
     type: 3}
-  SpawnDistance: 0.1
-  SpawnScattering: 0.05
-  SpawnProbability: 0.1
   PoolSize: 10
   PoolPos: {x: 10, y: 10}
-  SpawnPos: {x: 15, y: 0}
-  SpawnCollisionBoxSize: {x: 2, y: 5}
-  SpawnCollisionBoxOffset: {x: 0, y: 0}
   MaxY: 3.5
   MinY: 0
-  onTurboY: -2
-  StartOfScreenX: 10
+  OnTurboY: -2
   EndOfScreenX: -10
 --- !u!114 &500469221
 MonoBehaviour:
@@ -1128,6 +1066,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &500469224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500469211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e58f2890e57662a4a9f27bb9da177360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GhostPoolHandler: {fileID: 500469220}
+  Tower1PoolHandler: {fileID: 500469219}
+  Tower2PoolHandler: {fileID: 500469218}
+  Tower3PoolHandler: {fileID: 500469217}
+  Tower4PoolHandler: {fileID: 500469216}
+  Item1PoolHandler: {fileID: 500469215}
+  Item2PoolHandler: {fileID: 500469215}
+  Item3PoolHandler: {fileID: 500469213}
+  Item4PoolHandler: {fileID: 500469212}
+  MinTowerDistance: 5
+  MinItemDistance: 10
+  TowerSpawnProbability: 0.8
+  ItemSpawnProbability: 0.5
+  TowerSpawnScattering: 1
+  ItemSpawnScattering: 2
+  SpawnPos: {x: 15, y: 0}
+  _totalMovedDistance: 0
+  _mainSpawnAreaIsFree: 0
+  _lastSpawnedObject: {fileID: 0}
 --- !u!1 &520517948
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,6 +2756,98 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9db27af52a4a64543997baf9f87746d7, type: 3}
+--- !u!1 &1560453047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1560453050}
+  - component: {fileID: 1560453051}
+  - component: {fileID: 1560453049}
+  - component: {fileID: 1560453048}
+  m_Layer: 0
+  m_Name: TriggerPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1560453048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560453047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef51f0fb099ba94a9db6e26bb2d1f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1560453049
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560453047}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 7cd622f48d9017c47b213ba06ff6381b, type: 2}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 13, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 10}
+  m_EdgeRadius: 0
+--- !u!4 &1560453050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560453047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1560453051
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560453047}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1608344052 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7139857266276710689, guid: 292b96201d650bc429cb7e737cafa733,
