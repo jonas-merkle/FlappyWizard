@@ -43,7 +43,7 @@ public class ButtonHandler : MonoBehaviour
 
     public void ResetButtonClicked()
     {
-        HighScoreHandler.Instance.ReadHighScoreList();
+        HighScoreHandler.Instance.ResetHighScore();
 
         HighScoreViewClicked();
     }
