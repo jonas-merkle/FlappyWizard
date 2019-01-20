@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Experimental.UIElements;
+﻿using UnityEngine;
 
 public class ButtonHandler : MonoBehaviour
 {
@@ -41,6 +39,13 @@ public class ButtonHandler : MonoBehaviour
         HighScoreHandler.Instance.AddScore(GameControl.Instance.PlayerNameInputText.text, int.Parse(GameControl.Instance.ScoreText.text));
 
         BackToMainMenuClicked();
+    }
+
+    public void ResetButtonClicked()
+    {
+        HighScoreHandler.Instance.ReadHighScoreList();
+
+        HighScoreViewClicked();
     }
 
 }

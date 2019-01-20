@@ -41,15 +41,15 @@ public class SpawnHandler : MonoBehaviour
     #region private members
 
     // distances
-    public float _totalMovedDistance;
+    private float _totalMovedDistance;
     private float _distanceOfNextTowerSpawn;
     private float _distanceOfNextItemSpawn;
 
     // flags
-    public bool _mainSpawnAreaIsFree;
+    private bool _mainSpawnAreaIsFree;
 
     // last spawned object
-    public GameObject _lastSpawnedObject;
+    private GameObject _lastSpawnedObject;
 
     #endregion
 
@@ -117,18 +117,30 @@ public class SpawnHandler : MonoBehaviour
 
         // select the type of item
         GameObjectPoolHandler currentPool;
-        switch (Random.Range(1, 5))
+        switch (Random.Range(1, 17))
         {
             case 1:
+            case 5:
+            case 9:
+            case 13:
                 currentPool = Item1PoolHandler;
                 break;
             case 2:
+            case 6:
+            case 10:
+            case 14:
                 currentPool = Item2PoolHandler;
                 break;
             case 3:
+            case 7:
+            case 11:
+            case 15:
                 currentPool = Item3PoolHandler;
                 break;
             case 4:
+            case 8:
+            case 12:
+            case 16:
                 currentPool = Item4PoolHandler;
                 break;
             default:
@@ -163,15 +175,27 @@ public class SpawnHandler : MonoBehaviour
         switch (Random.Range(1, 5))
         {
             case 1:
+            case 5:
+            case 9:
+            case 13:
                 currentPool = Tower1PoolHandler;
                 break;
             case 2:
+            case 6:
+            case 10:
+            case 14:
                 currentPool = Tower2PoolHandler;
                 break;
             case 3:
+            case 7:
+            case 11:
+            case 15:
                 currentPool = Tower3PoolHandler;
                 break;
             case 4:
+            case 8:
+            case 12:
+            case 16:
                 currentPool = Tower4PoolHandler;
                 break;
             default:

@@ -85,10 +85,16 @@ public class HighScoreHandler : MonoBehaviour
 
         for (int i = 0; i < 20 && i < _highScoreList.Count; i++)
         {
-            sb.Append(i+1 + ". Place: " + _highScoreList[i].PlayerName + " -> " + _highScoreList[i].Score + "\r\n");
+            sb.Append(i+1 + ". " + _highScoreList[i].PlayerName + " -> " + _highScoreList[i].Score + "\r\n");
         }
 
         return sb.ToString();
+    }
+
+    public void ResetHighScore()
+    {
+        _highScoreList = new List<HighScoreElement>();
+        File.Delete(PathToFile);
     }
 
     #endregion
