@@ -21,7 +21,7 @@ public class PoolObject : Object
         GameObject = (Instantiate(GameObjectType, spawnPos, Quaternion.identity));
         GameObjectBody = GameObject.GetComponent<Rigidbody2D>();
         GameObjectBody.velocity = Vector2.zero;
-        YValueAtSpawn = 0;
+        YValueAtSpawn = spawnPos.y;
     }
 
     #endregion
