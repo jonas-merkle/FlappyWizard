@@ -201,8 +201,8 @@ public class GameControl : MonoBehaviour
     // function which gets called if the game is over
     private void DoGameOver()
     {
-        Time.timeScale = 0.0f;
         GameOver = true;
+        Time.timeScale = 0.0f;
         GameOverScreen.SetActive(true);
         ScoreAtGameOverText.text = ScoreText.text;
     }

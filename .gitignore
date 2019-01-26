@@ -1603,3 +1603,4 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/c,git,c++,java,cmake,eagle,rider,linux,macos,unity,latex,jabref,csharp,windows,eclipse,clion+all,aspnetcore,platformio,atmelstudio,intellij+all,unrealengine,visualstudio,jetbrains+all,visualstudiocode,openframeworks+visualstudio
 HIGHSCORE.json
+Assets/InitTestScene*
