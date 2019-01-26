@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-class Pool : Object
+public class Pool : Object
 {   
     #region public member
 
