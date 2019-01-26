@@ -630,9 +630,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Please sleect a Character to start...
-
-'
+  m_Text: Please select a Character to start...
 --- !u!222 &563108510
 CanvasRenderer:
   m_ObjectHideFlags: 0
