@@ -1199,19 +1199,16 @@ MonoBehaviour:
   Item2PoolHandler: {fileID: 500469215}
   Item3PoolHandler: {fileID: 500469213}
   Item4PoolHandler: {fileID: 500469212}
-  MinTowerDistance: 5
-  MinItemDistance: 10
+  MinTowerDistance: 6.7
+  MinItemDistance: 17.3
   TowerSpawnProbability: 0.8
   ItemSpawnProbability: 0.65
   GhostSpawnProbability: 1
-  TowerSpawnScattering: 1
-  ItemSpawnScattering: 2
+  TowerSpawnScattering: 1.5
+  ItemSpawnScattering: 3.33
   MaxHightOfTowerToSpawnGhost: -4
   DistanceOfGhostToTower: 7.5
   SpawnPos: {x: 15, y: 0}
-  _totalMovedDistance: 0
-  _mainSpawnAreaIsFree: 0
-  _lastSpawnedObject: {fileID: 0}
 --- !u!1 &520517948
 GameObject:
   m_ObjectHideFlags: 0

@@ -81,8 +81,7 @@ public class GameObjectPoolHandler : MonoBehaviour
                 // check if an effect is active and react 
                 if (GameControl.Instance.Turbo)
                 {
-
-                    if (!"Turbo".Equals(obj.GameObject.name.Replace("(Clone)", "")))
+                    if (!"Item".Equals(obj.GameObject.tag))
                     {
                         obj.GameObject.transform.position = new Vector2(obj.GameObject.transform.position.x, OnTurboY);
                     }

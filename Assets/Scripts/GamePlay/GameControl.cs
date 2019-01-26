@@ -156,6 +156,10 @@ public class GameControl : MonoBehaviour
         {
             CurrentGameSpeed += SpeedIncrement;
             _lastSpeedUpdateTime = GetInGameTime();
+            if (!Turbo)
+            {
+                _origSpeed = CurrentGameSpeed;
+            }
         }
     }
 
@@ -174,6 +178,7 @@ public class GameControl : MonoBehaviour
 
         // setting some game variables
         CurrentGameSpeed = StartSpeed;
+        _origSpeed = StartSpeed;
         GameOver = false;
         GamePaused = false;
         Troll = false;
@@ -260,6 +265,7 @@ public class GameControl : MonoBehaviour
             }
             else if ("item_blue".Equals(itemType))
             {
+                CurrentGameSpeed = _origSpeed;
                 Turbo = true;
                 ItemText.text = "Turbo";
                 _origSpeed = CurrentGameSpeed;
@@ -280,6 +286,8 @@ public class GameControl : MonoBehaviour
 
             // Move the object out of the way 
             e.Collider.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(-1000, 0);
+
+            new WaitForFixedUpdate();
 
             // set GetInGameTime of effect start
             TimeOfEffectStart = GetInGameTime();

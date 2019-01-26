@@ -75,6 +75,8 @@
     <Compile Include="Assets\Scripts\Global\SceneHandler.cs" />
     <Compile Include="Assets\Scripts\HighScoreView\DisplayHighScore.cs" />
     <Compile Include="Assets\Scripts\Tests\CollisionTest.cs" />
+    <Compile Include="Assets\Scripts\Tests\ObjectHandlerTests.cs" />
+    <Compile Include="Assets\Scripts\Tests\PoolObjectSpawnTests.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
